@@ -28,15 +28,9 @@ imageMe = (msg, query, cb) ->
   msg.http('http://ajax.googleapis.com/ajax/services/search/images')
     .query(v: "1.0", rsz: '8', q: query, safe: 'active')
     .get() (err, res, body) ->
-      console.log err
-      console.log res
       images = JSON.parse(body)
-      console.log images
       images = images.responseData.results
-      console.log images
       if images.length > 0
-        console.log image
         image  = msg.random images
-        console.log image
         cb "#{image.unescapedUrl}#.png"
 
