@@ -17,7 +17,7 @@ module.exports = (robot) ->
   robot.hear /^(\w+) needs some "?cheer(\w*) .*up/i, (msg) ->
     aww msg, "I hope that makes #{msg.match[1]} feel better"
 
-  robot.hear /^(scrappy )?cheer (\w+) up/i, (msg) ->
+  robot.hear new RegExp("^(#{robot.name} )?cheer (\\w+) up", "i"), (msg) ->
     switch msg.match[2]
       when "us"
         aww msg, "I hope that makes everyone feel better"
