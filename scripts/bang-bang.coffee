@@ -20,13 +20,22 @@ module.exports = (robot) ->
   robot.respond /!!/i, (msg) ->
 
     if exports.last_command?
-      msg.send exports.last_command
-      msg['message']['text'] = "#{robot.name}: #{exports.last_command}"
-      robot.receive(msg['message'])
-      msg['message']['done'] = true
+      repeat msg
     else
       msg.send "i don't remember hearing anything."
 
+  robot.hear /try again/i, (msg) ->
+
+    if exports.last_command?
+      repeat msg
+
+  repeat = (msg) ->
+    msg.send exports.last_command
+    msg['message']['text'] = "hubot: #{exports.last_command}"
+    robot.receive(msg['message'])
+    msg['message']['done'] = true
+
 store = (msg) ->
   command = msg.match[1].trim()
-  exports.last_command = command unless command == '!!'
+  exports.last_command = command unless command == '!!' || /try again/i.test(command)
+
