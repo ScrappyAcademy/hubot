@@ -13,3 +13,6 @@
 # Author:
 #   cupakromer
 
+module.export = (robot) ->
+  robot.hear /commit/i, (msg) ->
+    msg.send ":shipit:"
