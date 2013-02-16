@@ -14,6 +14,6 @@
 #   cupakromer
 
 module.exports = (robot) ->
-  robot.hear (new RegExp("#{robot.name} commit")), (msg) ->
-    msg.send robot.name
+  robot.hear /^\[\w+(\/\w+)?\].*https?:\/\/git\S*commit/i, (msg) ->
     msg.send ":shipit:"
+    msg.send "/play pushit"
