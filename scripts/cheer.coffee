@@ -14,14 +14,23 @@
 #   carllerche
 
 module.exports = (robot) ->
-  robot.hear /(\w+) needs some "?cheer(\w*) .*up/i, (msg) ->
+  robot.hear /^(\w+) needs some "?cheer(\w*) .*up/i, (msg) ->
     aww msg, "I hope that makes #{msg.match[1]} feel better"
 
-  robot.hear /cheer me up/i, (msg) ->
-    aww msg
+  robot.hear /^(scrappy )?cheer (\w+) up/i, (msg) ->
+    switch msg.match[2]
+      when "us"
+        aww msg, "I hope that makes everyone feel better"
+      when "me"
+        aww msg
+      else aww msg, "I hope that makes #{msg.match[2]} feel better"
 
   robot.hear /i( am|'m) emo/i, (msg) ->
-    msg.send "Let me cheer you up."
+    msg.reply "Let me cheer you up."
+    aww msg
+
+  robot.hear /i( am|'m) lonely/i, (msg) ->
+    msg.reply "I'm always here for you!"
     aww msg
 
 aww = (msg, after_msg = null) ->
