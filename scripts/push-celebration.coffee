@@ -13,6 +13,7 @@
 # Author:
 #   cupakromer
 
-module.export = (robot) ->
-  robot.hear /commit/i, (msg) ->
+module.exports = (robot) ->
+  robot.hear (new RegExp("#{robot.name} commit")), (msg) ->
+    msg.send robot.name
     msg.send ":shipit:"
