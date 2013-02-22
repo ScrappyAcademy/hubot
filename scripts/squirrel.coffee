@@ -26,6 +26,11 @@ squirrel = [
 ]
 
 module.exports = (robot) ->
-  robot.hear /squirrel| :squirrel:/i, (msg) ->
+  robot.hear /squirrel/i, (msg) ->
       msg.send msg.random squirrel
+
+  robot.hear /fun/i, (msg) ->
+      msg.send "Did someone say fun?! Incoming!" 
+      msg.send msg.random squirrel
+    
 
