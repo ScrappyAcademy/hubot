@@ -16,4 +16,4 @@
 module.exports = (robot) ->
   robot.hear /^\[\w+(\/\w+)?\].*https?:\/\/git\S*commit/i, (msg) ->
     msg.send ":shipit:"
-    msg.send "/play pushit"
+    msg.play 'pushit'
