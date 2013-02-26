@@ -14,14 +14,26 @@
 #   carllerche
 
 module.exports = (robot) ->
-  robot.hear /cheer me up/i, (msg) ->
-    aww msg
+  robot.hear /^(\w+) needs some "?cheer(\w*) .*up/i, (msg) ->
+    aww msg, "I hope that makes #{msg.match[1]} feel better"
+
+  robot.hear new RegExp("^(#{robot.name} )?cheer (\\w+) up", "i"), (msg) ->
+    switch msg.match[2]
+      when "us"
+        aww msg, "I hope that makes everyone feel better"
+      when "me"
+        aww msg
+      else aww msg, "I hope that makes #{msg.match[2]} feel better"
 
   robot.hear /i( am|'m) emo/i, (msg) ->
-    msg.send "Let me cheer you up."
+    msg.reply "Let me cheer you up."
     aww msg
 
-aww = (msg) ->
+  robot.hear /i( am|'m) lonely/i, (msg) ->
+    msg.reply "I'm always here for you!"
+    aww msg
+
+aww = (msg, after_msg = null) ->
   msg
     .http('http://imgur.com/r/aww.json')
       .get() (err, res, body) ->
@@ -30,5 +42,6 @@ aww = (msg) ->
         if images.length > 0
           image  = msg.random images
           msg.send "http://i.imgur.com/#{image.hash}#{image.ext}"
+          msg.send after_msg if after_msg
         else
           msg.send "I'm sorry, I couldn't find anything to cheer you up."
