@@ -11,7 +11,7 @@
 #   hubot_shows_awesome_squirrels
 #
 # Author
-#   carllerche
+#   AllisonSheren
 
 squirrel = [
     "http://save-the-squirrels.com/wp-content/uploads/2012/03/guilty-party.jpg",
@@ -33,4 +33,7 @@ module.exports = (robot) ->
       msg.send "Did someone say fun?! Incoming!" 
       msg.send msg.random squirrel
     
+  robot.hear /./i, (msg) ->
+      randFifty = Math.floor(Math.random()*50) +1
+      msg.send msg.random squirrel if randFifty == 50
 
