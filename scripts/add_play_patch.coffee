@@ -37,8 +37,9 @@ module.exports = (robot) ->
         if sound.length > 0
           @bot.Room(user.room).sound sound, (err, data) =>
             # Campfire adapter object context
-            @robot.logger.error "Campfire error: #{err}" if err?
-            @send user, "/play #{sound}"
+            if err?
+              @robot.logger.error "Campfire error: #{err}"
+              @send user, "/play #{sound}"
     else
       robot.logger.info "Adding 'play' standard patch"
       robot.adapter.play = (user, sound) ->
