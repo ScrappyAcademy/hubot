@@ -29,7 +29,7 @@ module.exports = (robot) ->
   robot.hear /squirrel/i, (msg) ->
     msg.send msg.random squirrel
 
-  robot.hear /fun(\W|\z)/i, (msg) ->
+  robot.hear /fun\b/i, (msg) ->
     msg.send "Did someone say fun?! Incoming!"
     msg.send msg.random squirrel
 
