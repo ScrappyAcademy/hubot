@@ -33,4 +33,4 @@ module.exports = (robot) ->
 
   robot.hear /./i, (msg) ->
     msg.send msg.random trolls if one_in(100)
-    msg.play msg.random(troll_sounds) if one_in(40)
+    msg.play msg.random(troll_sounds) if one_in(60)
