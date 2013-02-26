@@ -12,7 +12,7 @@ util = require 'util'
 module.exports = (robot) ->
 
   robot.hear /./, (msg) ->
-    robot.logger.debug "HEAR: #{msg}"
+    robot.logger.debug "HEAR: #{util.inspect msg}"
 
   robot.catchAll (msg) ->
     robot.logger.debug "CATCH: #{util.inspect msg}"
