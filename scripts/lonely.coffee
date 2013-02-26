@@ -16,18 +16,18 @@
 Util = require "util"
 
 module.exports = (robot) ->
-  robot.brain.active = robot.brain.active or [ ]
+  robot.brain.data.active = robot.brain.data.active or [ ]
 
   userIsAlone = ->
-    1 == robot.brain.active.length
+    1 == robot.brain.data.active.length
 
   # Register users when they arrive
   robot.enter (response) ->
-    robot.brain.active.push(response.message.user.id)
+    robot.brain.data.active.push(response.message.user.id)
 
   # Remove users when they leave
   robot.leave (response) ->
-    robot.brain.active = robot.brain.active.filter (id) ->
+    robot.brain.data.active = robot.brain.data.active.filter (id) ->
       response.message.user.id != id
 
   robot.hear /./i, (msg) ->
@@ -35,4 +35,4 @@ module.exports = (robot) ->
       msg.play 'crickets'
 
   robot.respond /show (who('s| is) )?active/i, (msg) ->
-    msg.send Util.inspect(robot.brain.active, false)
+    msg.send Util.inspect(robot.brain.data.active, false)
