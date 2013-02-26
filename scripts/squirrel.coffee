@@ -27,13 +27,13 @@ squirrel = [
 
 module.exports = (robot) ->
   robot.hear /squirrel/i, (msg) ->
-      msg.send msg.random squirrel
+    msg.send msg.random squirrel
 
   robot.hear /fun/i, (msg) ->
-      msg.send "Did someone say fun?! Incoming!" 
-      msg.send msg.random squirrel
-    
+    msg.send "Did someone say fun?! Incoming!"
+    msg.send msg.random squirrel
+
   robot.hear /./i, (msg) ->
-      randFifty = Math.floor(Math.random()*50) +1
-      msg.send msg.random squirrel if randFifty == 50
+    randFifty = Math.floor(Math.random()*50) +1
+    msg.send msg.random squirrel if randFifty == 50
 
