@@ -13,6 +13,8 @@
 # Author:
 #   cupakromer
 
+Util = require "util"
+
 module.exports = (robot) ->
   robot.brain.active = robot.brain.active or [ ]
 
@@ -31,3 +33,6 @@ module.exports = (robot) ->
   robot.hear /./i, (msg) ->
     if userIsAlone() and 1 == Math.floor(Math.random() * 2)
       msg.play 'crickets'
+
+  robot.respond /show (who('s| is) )?active/i, (msg) ->
+    msg.send Util.inspect(robot.brain.active, false)
