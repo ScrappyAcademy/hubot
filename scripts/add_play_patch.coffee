@@ -44,3 +44,6 @@ module.exports = (robot) ->
       robot.adapter.play = (user, sound) ->
         if sound.length > 0
           @send user, "/play #{sound}"
+
+  robot.respond /play (me )?(\w+)/i, (msg) ->
+    msg.play msg.match[2]
