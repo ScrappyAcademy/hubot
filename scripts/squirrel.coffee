@@ -34,6 +34,6 @@ module.exports = (robot) ->
     msg.send msg.random squirrel
 
   robot.hear /./i, (msg) ->
-    randFifty = Math.floor(Math.random() * 50) + 1
-    msg.send msg.random squirrel if randFifty == 50
+    randNum = Math.floor(Math.random() * 100) + 1
+    msg.send msg.random squirrel if randNum == 1
 
