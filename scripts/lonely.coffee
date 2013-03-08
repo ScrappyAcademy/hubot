@@ -30,8 +30,9 @@ module.exports = (robot) ->
 
   # Remove users when they leave
   robot.leave (response) ->
-    robot.brain.data.active = robot.brain.data.active.filter (id) ->
-      response.message.user.id != id
+    robot.brain.data.active = [ ]
+    #    robot.brain.data.active = robot.brain.data.active.filter (id) ->
+    #      response.message.user.id != id
 
   robot.hear /./i, (msg) ->
     if userIsAlone() and 1 == Math.floor(Math.random() * 2)
