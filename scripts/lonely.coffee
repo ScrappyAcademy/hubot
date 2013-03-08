@@ -16,14 +16,17 @@
 Util = require "util"
 
 module.exports = (robot) ->
-  robot.brain.data.active = robot.brain.data.active or [ ]
+  # BUG: This isn't working as it is not picking up timeout leave messages
+  # Still investigating this. For now turning the feature off.
+  #robot.brain.data.active = robot.brain.data.active or [ ]
+  robot.brain.data.active = [ ]
 
   userIsAlone = ->
     1 == robot.brain.data.active.length
 
   # Register users when they arrive
   robot.enter (response) ->
-    robot.brain.data.active.push(response.message.user.id)
+  #robot.brain.data.active.push(response.message.user.id)
 
   # Remove users when they leave
   robot.leave (response) ->
