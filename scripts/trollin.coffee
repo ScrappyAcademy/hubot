@@ -20,7 +20,7 @@ trolls = [
   "http://cdn.memegenerator.net/instances/400x/24985000.jpg",
   "http://ct.fra.bz/ol/fz/sw/i51/5/5/4/frabz-They-see-me-trollin-they-hatin-895e35.jpg",
   "http://rlv.zcache.co.uk/they_see_me_trollin_they_hatin_speckcase-p176089345251326001en8cx_216.jpg",
-  "https://i.chzbgr.com/maxW500/6586469376/h8B70ECD1/",
+  "https://i.chzbgr.com/maxW500/6586469376/h8B70ECD1.jpg",
   "http://1.bp.blogspot.com/_19PO40AlFUY/TGT0iHPOysI/AAAAAAAAAKY/KmIttVHh1mI/s1600/singlelobsterfuck.jpg",
   "http://i190.photobucket.com/albums/z316/ebonobelisk/troll1.jpg",
   "http://fc05.deviantart.net/fs71/f/2011/167/9/1/sir_troll_cat_was_here_by_jesf-d3j43q2.jpg"
