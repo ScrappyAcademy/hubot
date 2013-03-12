@@ -14,6 +14,7 @@
 #   cupakromer
 
 facepalms = [
+  "http://www.bleachernation.com/wp-content/uploads/2011/12/facepalm-cat-300x300.jpg",
   "http://media.tumblr.com/7b32e336b10589b678c5fafda8a4cace/tumblr_inline_mi2kfhtKhY1qz4rgp.gif",
   "http://images2.wikia.nocookie.net/__cb20121110220608/adventuretimewithfinnandjake/images/e/e6/Facepalm100000000.gif",
   "http://images.wikia.com/glee/images/a/a7/Draco-malfoy-facepalm.gif",
