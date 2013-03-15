@@ -5,13 +5,14 @@
 
 module.exports = (robot) ->
 
-  robot.respond /pug me/i, (msg) ->
+  robot.hear /\bpug me\b/i, (msg) ->
     msg.http("http://pugme.herokuapp.com/random")
       .get() (err, res, body) ->
         msg.send JSON.parse(body).pug
 
-  robot.respond /pug bomb( (\d+))?/i, (msg) ->
-    count = msg.match[2] || 5
+  robot.hear /\bpug bomb((!+)| (\d+))?/i, (msg) ->
+    count = msg.match[3] || 5
+    count += (msg.match[2] && msg.match[2].length) || 0
     msg.http("http://pugme.herokuapp.com/bomb?count=" + count)
       .get() (err, res, body) ->
         msg.send pug for pug in JSON.parse(body).pugs
